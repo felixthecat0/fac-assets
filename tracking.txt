@@ -139,6 +139,15 @@
   }
   function patchOptin(){
     var BN='FelixAmazonCat', UC='the online arbitrage list and Amazon FBA tips you requested';
+    try{
+      if(!document.getElementById('fac-optin-css')){
+        var fl=document.createElement('link'); fl.rel='stylesheet'; fl.href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap'; document.head.appendChild(fl);
+        var st=document.createElement('style'); st.id='fac-optin-css'; st.textContent=OPTIN_CSS; document.head.appendChild(st);
+        var hd=document.createElement('div'); hd.id='fac-optin-head';
+        hd.innerHTML='<div class="fo-nav"><a class="fo-logo" href="/"><img src="https://cdn.jsdelivr.net/gh/felixthecat0/fac-assets@main/logo-cat.jpg" alt="FelixAmazonCat"> FelixAmazonCat</a><a class="fo-more" href="/">Find out more</a></div>';
+        document.body.insertBefore(hd, document.body.firstChild);
+      }
+    }catch(e){}
     try{var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null,false),n;
       while(n=w.nextNode()){var v=n.nodeValue; if(!v)continue;
         if(v.indexOf('[BUSINESS NAME]')>-1){n.nodeValue=v.split('[BUSINESS NAME]').join(BN); v=n.nodeValue;}
@@ -161,6 +170,18 @@
       });
     }catch(e){}
   }
+  var OPTIN_CSS = `
+#fac-optin-head{position:relative;z-index:5;background:#0a0b10;border-bottom:1px solid rgba(255,255,255,.08)}
+.fo-nav{max-width:1080px;margin:0 auto;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-family:Inter,system-ui,sans-serif}
+.fo-logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:17px;color:#f3f5f9;text-decoration:none;letter-spacing:-.01em}
+.fo-logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,255,255,.12)}
+.fo-more{display:inline-flex;align-items:center;background:#3d7bf4;color:#fff;font-weight:700;font-size:14px;padding:10px 18px;border-radius:8px;text-decoration:none;transition:background .15s}
+.fo-more:hover{background:#2f6ae0}
+html,body{background:#0a0b10 !important}
+#section-_O0H4Rg4IH{background:#0a0b10 !important;border:0 !important;border-radius:0 !important;padding-top:48px !important}
+#section-_O0H4Rg4IH,#section-_O0H4Rg4IH *{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif !important}
+.main-heading-button{box-shadow:none !important;border-radius:8px !important}
+`;
   var PRIVACY_HTML = `<!DOCTYPE html>
 <html lang="en">
 <head>
